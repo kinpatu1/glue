@@ -26,7 +26,7 @@ module "ec2" {
   key_name           = "miki"
   ebs_name           = "${var.project}-ebs"
   ec2_name           = "${var.project}-ec2"
-  security_group_ec2 = "${var.project}-ec2"
+  security_group_ec2 = "${var.project}-security_group-ec2"
   vpc_id             = module.vpc.project_vpc_id
   subnet_id          = module.vpc.project_subnet_public_id_1
 }
@@ -36,7 +36,7 @@ module "rds" {
   source = "../modules/rds"
 
   rds_name           = "${var.project}-rds"
-  security_group_rds = "${var.project}-rds"
+  security_group_rds = "${var.project}-security_group-rds"
   vpc_id             = module.vpc.project_vpc_id
   master_password    = var.master_password
 }

@@ -16,4 +16,5 @@ module "vpc" {
   subnet_name      = "${var.project}-subnet"
   igw_name         = "${var.project}-igw"
   vpc_name         = "${var.project}-vpc"
+  s3endpoint_name  = "${var.project}-s3endpoint"
 }

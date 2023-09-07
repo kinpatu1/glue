@@ -86,9 +86,9 @@ resource "aws_route_table_association" "project_tableassociation_private" {
 }
 
 resource "aws_vpc_endpoint" "s3_endpoint" {
-    vpc_id          = aws_vpc.project_vpc.id
-    service_name    = "com.amazonaws.ap-northeast-1.s3"
-    policy = <<POLICY
+  vpc_id       = aws_vpc.project_vpc.id
+  service_name = "com.amazonaws.ap-northeast-1.s3"
+  policy       = <<POLICY
     {
         "Statement": [
             {
@@ -100,4 +100,8 @@ resource "aws_vpc_endpoint" "s3_endpoint" {
         ]
     }
     POLICY
+
+  tags = {
+    Name = var.s3endpoint_name
+  }
 }

@@ -84,3 +84,20 @@ resource "aws_route_table_association" "project_tableassociation_private" {
   subnet_id      = element(aws_subnet.project_subnet_private.*.id, count.index)
   route_table_id = aws_route_table.project_private_table.id
 }
+
+resource "aws_vpc_endpoint" "s3_endpoint" {
+    vpc_id          = aws_vpc.project_vpc.id
+    service_name    = "com.amazonaws.ap-northeast-1.s3"
+    policy = <<POLICY
+    {
+        "Statement": [
+            {
+                "Action": "*",
+                "Effect": "Allow",
+                "Resource": "*",
+                "Principal": "*"
+            }
+        ]
+    }
+    POLICY
+}

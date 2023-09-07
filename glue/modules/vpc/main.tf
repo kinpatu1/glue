@@ -23,7 +23,7 @@ output "project_sg_gateway" {
 }
 
 resource "aws_vpc" "project_vpc" {
-  cidr_block           = var.cidr_vpc
+  cidr_block = var.cidr_vpc
   tags = {
     Name = var.vpc_name
   }

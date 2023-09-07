@@ -1,7 +1,7 @@
 resource "aws_rds_cluster" "cluster" {
   cluster_identifier  = var.rds_name
   engine              = "aurora-mysql"
-  engine_version      = "5.7.mysql_aurora.2.03.2"
+  engine_version      = "5.7.mysql_aurora.2.11.2"
   availability_zones  = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
   master_username     = "admin"
   master_password     = var.master_password
@@ -17,7 +17,7 @@ resource "aws_rds_cluster_instance" "instance" {
   cluster_identifier = aws_rds_cluster.cluster.id
   instance_class     = "db.t3.small"
   engine             = "aurora-mysql"
-  engine_version     = "5.7.mysql_aurora.2.03.2"
+  engine_version     = "5.7.mysql_aurora.2.11.2"
 }
 
 resource "aws_security_group" "rds" {

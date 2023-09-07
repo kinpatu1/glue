@@ -4,7 +4,9 @@ resource "aws_instance" "gateway" {
   associate_public_ip_address = true
   instance_type               = "t2.micro"
   key_name                    = var.key_name
-
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   tags = {
     Name = var.ec2_name
   }

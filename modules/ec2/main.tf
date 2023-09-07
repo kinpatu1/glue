@@ -1,5 +1,5 @@
 resource "aws_instance" "gateway" {
-  subnet_id                   = module.vpc.project_vpc_id
+  subnet_id                   = var.subnet_id
   ami                         = "ami-07d6bd9a28134d3b3"
   associate_public_ip_address = true
   availability_zone           = "ap-northeast-1a"
@@ -30,7 +30,7 @@ resource "aws_instance" "gateway" {
 
 resource "aws_security_group" "gateway" {
   description = var.security_group
-  vpc_id      = module.vpc.project_vpc_id
+  vpc_id      = var.vpc_id
   name        = var.security_group
   tags = {
     Name = var.security_group

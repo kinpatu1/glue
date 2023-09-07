@@ -7,6 +7,14 @@ resource "aws_instance" "gateway" {
   vpc_security_group_ids = [
     aws_security_group.gateway.id
   ]
+  root_block_device {
+    volume_type = "gp2"
+    volume_size = 8
+    tags = {
+      Name = var.ebs_name
+    }
+  }
+
   tags = {
     Name = var.ec2_name
   }

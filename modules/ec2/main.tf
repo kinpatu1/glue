@@ -21,11 +21,11 @@ resource "aws_instance" "gateway" {
 }
 
 resource "aws_security_group" "gateway" {
-  description = var.security_group
+  description = var.security_group_ec2
   vpc_id      = var.vpc_id
-  name        = var.security_group
+  name        = var.security_group_ec2
   tags = {
-    Name = var.security_group
+    Name = var.security_group_ec2
   }
 
   egress {

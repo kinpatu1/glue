@@ -5,3 +5,5 @@ variable "project" {
   type    = string
   default = "glue"
 }
+
+variable "master_password" {}

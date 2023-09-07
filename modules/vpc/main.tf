@@ -95,6 +95,7 @@ resource "aws_vpc_endpoint" "s3_endpoint" {
   service_name = "com.amazonaws.ap-northeast-1.s3"
   policy       = <<POLICY
     {
+	      "Version": "2008-10-17",
         "Statement": [
             {
                 "Action": "*",

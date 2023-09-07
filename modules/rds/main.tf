@@ -1,11 +1,11 @@
 resource "aws_rds_cluster" "cluster" {
-  cluster_identifier  = var.rds_name
-  engine              = "aurora-mysql"
-  engine_version      = "5.7.mysql_aurora.2.11.2"
-  availability_zones  = ["ap-northeast-1a", "ap-northeast-1c"]
-  master_username     = "admin"
-  master_password     = var.master_password
-  deletion_protection = true
+  cluster_identifier   = var.rds_name
+  engine               = "aurora-mysql"
+  engine_version       = "5.7.mysql_aurora.2.11.2"
+  availability_zones   = ["ap-northeast-1a", "ap-northeast-1c"]
+  master_username      = "admin"
+  master_password      = var.master_password
+  deletion_protection  = false
   db_subnet_group_name = aws_db_subnet_group.public.name
   vpc_security_group_ids = [
     aws_security_group.rds.id

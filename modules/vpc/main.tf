@@ -18,10 +18,6 @@ output "project_subnet_private_id_2" {
   value = element(aws_subnet.project_subnet_private.*.id, 2)
 }
 
-output "project_sg_gateway" {
-  value = aws_security_group.project_sg_gateway.id
-}
-
 resource "aws_vpc" "project_vpc" {
   cidr_block = var.cidr_vpc
   tags = {

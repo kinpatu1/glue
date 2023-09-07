@@ -6,6 +6,7 @@ resource "aws_rds_cluster" "cluster" {
   master_username     = "admin"
   master_password     = var.master_password
   deletion_protection = true
+  db_subnet_group_name = aws_db_subnet_group.public.name
   vpc_security_group_ids = [
     aws_security_group.rds.id
   ]
@@ -49,4 +50,13 @@ resource "aws_security_group" "rds" {
     self             = false
     to_port          = "3306"
   }
+}
+
+resource "aws_db_subnet_group" "public" {
+  description = var.subnet_group
+  name        = var.subnet_group
+  subnet_ids = [
+    var.subnet_public-a_id,
+    var.subnet_public-c_id
+  ]
 }

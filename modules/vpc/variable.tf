@@ -4,6 +4,8 @@ variable "cidr_private" {}
 variable "route_table_name" {}
 variable "subnet_name" {}
 variable "igw_name" {}
+variable "vpc_name" {}
+
 
 variable "availability_zones" {
   type    = list(string)

@@ -15,6 +15,5 @@ module "vpc" {
   route_table_name = "${var.project}-rtb"
   subnet_name      = "${var.project}-subnet"
   igw_name         = "${var.project}-igw"
-
-
+  vpc_name         = "${var.project}-vpc"
 }

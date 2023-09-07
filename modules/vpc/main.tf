@@ -46,9 +46,8 @@ resource "aws_route_table" "project_public_table" {
   vpc_id = aws_vpc.project_vpc.id
 
   route {
-    cidr_block      = "0.0.0.0/0"
-    gateway_id      = aws_internet_gateway.project_igw.id
-    vpc_endpoint_id = aws_vpc_endpoint.s3_endpoint.id
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.project_igw.id
   }
 
   tags = {
@@ -60,6 +59,11 @@ resource "aws_route_table_association" "project_tableassociation_public" {
   count          = length(var.cidr_public)
   subnet_id      = element(aws_subnet.project_subnet_public.*.id, count.index)
   route_table_id = aws_route_table.project_public_table.id
+}
+
+resource "aws_vpc_endpoint_route_table_association" "public_s3" {
+  route_table_id  = aws_route_table.project_public_table.id
+  vpc_endpoint_id = aws_vpc_endpoint.s3_endpoint.id
 }
 
 resource "aws_subnet" "project_subnet_private" {

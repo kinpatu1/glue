@@ -2,25 +2,8 @@ resource "aws_instance" "gateway" {
   subnet_id                   = var.subnet_id
   ami                         = "ami-07d6bd9a28134d3b3"
   associate_public_ip_address = true
-  ebs_optimized               = true
   instance_type               = "t2.micro"
   key_name                    = var.key_name
-
-  root_block_device {
-    volume_type = "gp2"
-    volume_size = 60
-    tags = {
-      Name = var.ebs_name
-    }
-  }
-
-  credit_specification {
-    cpu_credits = "standard"
-  }
-
-  vpc_security_group_ids = [
-    aws_security_group.gateway.id
-  ]
 
   tags = {
     Name = var.ec2_name

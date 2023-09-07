@@ -16,7 +16,7 @@ resource "aws_rds_cluster_instance" "instance" {
   identifier         = var.rds_name
   cluster_identifier = aws_rds_cluster.cluster.id
   instance_class     = "db.t3.small"
-  engine             = aurora-mysql
+  engine             = "aurora-mysql"
   engine_version     = "5.7.mysql_aurora.2.03.2"
 }
 

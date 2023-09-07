@@ -18,3 +18,14 @@ module "vpc" {
   vpc_name         = "${var.project}-vpc"
   s3endpoint_name  = "${var.project}-s3endpoint"
 }
+
+module "ec2" {
+  ### Module Path
+  source = "../modules/ec2"
+
+  key_name       = "miki"
+  ebs_name       = "${var.project}-ebs"
+  ec2_name       = "${var.project}-ec2"
+  security_group = "${var.project}-security_group"
+
+}

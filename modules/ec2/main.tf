@@ -11,7 +11,7 @@ resource "aws_instance" "gateway" {
     volume_type = "gp2"
     volume_size = 60
     tags = {
-      Name = "${var.project}-ebs"
+      Name = var.ebs_name
     }
   }
 
@@ -24,16 +24,16 @@ resource "aws_instance" "gateway" {
   ]
 
   tags = {
-    Name = "${var.project}-gateway"
+    Name = var.ec2_name
   }
 }
 
 resource "aws_security_group" "gateway" {
-  description = "${var.security_group}-sg-gateway"
+  description = var.security_group
   vpc_id      = module.vpc.project_vpc_id
-  name        = "${var.security_group}-sg-gateway"
+  name        = var.security_group
   tags = {
-    Name = "${var.security_group}-sg-gateway"
+    Name = var.security_group
   }
 
   egress {

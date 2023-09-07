@@ -48,7 +48,7 @@ resource "aws_route_table" "project_public_table" {
   route {
     cidr_block      = "0.0.0.0/0"
     gateway_id      = aws_internet_gateway.project_igw.id
-    vpc_endpoint_id = aws_vpc_endpoint.s3_endpointid
+    vpc_endpoint_id = aws_vpc_endpoint.s3_endpoint.id
   }
 
   tags = {

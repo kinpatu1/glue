@@ -43,3 +43,11 @@ module "rds" {
   subnet_public-a_id = module.vpc.project_subnet_public_id_1
   subnet_public-c_id = module.vpc.project_subnet_public_id_2
 }
+
+module "glue" {
+  ### Module Path
+  source = "../modules/glue"
+
+  security_group_glue = "${var.project}-security_group-glue"
+  vpc_id              = module.vpc.project_vpc_id
+}

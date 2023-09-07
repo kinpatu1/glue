@@ -11,7 +11,7 @@ resource "aws_instance" "gateway" {
     volume_type = "gp2"
     volume_size = 60
     tags = {
-      Name = var.ebs
+      Name = "${var.project}-ebs"
     }
   }
 

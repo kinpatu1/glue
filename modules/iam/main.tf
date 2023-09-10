@@ -7,7 +7,7 @@ resource "aws_iam_role_policy" "glue_connection" {
   name = var.iam_policy
   role = aws_iam_role.glue_connection.id
 
-  policy = arn:aws:iam::aws:policy/service-role/AWSGlueDataBrewServiceRole
+  policy = "arn:aws:iam::aws:policy/service-role/AWSGlueDataBrewServiceRole"
 }
 
 resource "aws_iam_role_policy_attachment" "glue_connection" {

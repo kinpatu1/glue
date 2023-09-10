@@ -51,6 +51,11 @@ module "glue" {
   security_group_glue = "${var.project}-security_group-glue"
   vpc_id              = module.vpc.project_vpc_id
   glue_database_name  = "${var.project}-database"
+  instance_endpoint = module.rds.instance_endpoint
+  database = "glue"
+  password = var.glue_password
+  username = "admin"
+  glue_connection_name = "${var.project}-connection2"
 }
 
 module "s3" {

@@ -32,3 +32,13 @@ resource "aws_security_group" "glue" {
 resource "aws_glue_catalog_database" "glue_database" {
   name = var.glue_database_name
 }
+
+resource "aws_glue_connection" "glue_connection_name" {
+  connection_properties = {
+    JDBC_CONNECTION_URL = "jdbc:mysql://${var.instance_endpoint}/${var.database}"
+    PASSWORD            = var.password
+    USERNAME            = var.username
+  }
+
+  name = var.glue_connection_name
+}

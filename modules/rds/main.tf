@@ -1,5 +1,5 @@
 output "instance_endpoint" {
-  value = aws_rds_cluster_instance.instance.endpoint
+  value = aws_rds_cluster_instance.instance[0].endpoint
 }
 
 resource "aws_rds_cluster" "cluster" {

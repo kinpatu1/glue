@@ -11,6 +11,21 @@ resource "aws_rds_cluster" "cluster" {
   vpc_security_group_ids = [
     aws_security_group.rds.id
   ]
+  lifecycle {
+    ignore_changes = [
+      apply_immediately,
+      backtrack_window,
+      cluster_identifier_prefix,
+      database_name,
+      enabled_cloudwatch_logs_exports,
+      global_cluster_identifier,
+      iam_database_authentication_enabled,
+      iam_roles,
+      replication_source_identifier,
+      tags
+    ]
+  }
+
 }
 
 resource "aws_rds_cluster_instance" "instance" {
@@ -20,6 +35,14 @@ resource "aws_rds_cluster_instance" "instance" {
   instance_class     = "db.t3.small"
   engine             = "aurora-mysql"
   engine_version     = "5.7.mysql_aurora.2.11.2"
+
+  lifecycle {
+    ignore_changes = [
+      apply_immediately,
+      identifier_prefix,
+      tags
+    ]
+  }
 }
 
 resource "aws_security_group" "rds" {

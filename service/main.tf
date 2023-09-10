@@ -57,5 +57,5 @@ module "s3" {
   ### Module Path
   source = "../modules/s3"
 
-  s3_bucket_name = "2023-${var.project}-s3-2023"
+  s3_bucket_name = "${var.project}-s3-2023"
 }

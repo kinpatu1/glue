@@ -56,5 +56,5 @@ module "s3" {
   ### Module Path
   source = "../modules/s3"
 
-  s3_bucket_name = "${var.project}-s3"
+  s3_bucket_name = "${var.project}-s3-202301111"
 }

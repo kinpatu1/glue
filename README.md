@@ -2,6 +2,7 @@
 roleはadmin権限なので本番運用時は気を付ける
 
 glueのjobとworkflowは手動対応
+https://blog.serverworks.co.jp/run-glue-workflow-when-the-files-is-reached
 
 ## テーブル作成
 create table acinfotokyo (

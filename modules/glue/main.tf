@@ -28,3 +28,7 @@ resource "aws_security_group" "glue" {
     to_port          = "65535"
   }
 }
+
+resource "aws_glue_catalog_database" "glue_database" {
+  name = var.glue_database_name
+}

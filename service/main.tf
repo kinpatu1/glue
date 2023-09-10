@@ -50,6 +50,7 @@ module "glue" {
 
   security_group_glue = "${var.project}-security_group-glue"
   vpc_id              = module.vpc.project_vpc_id
+  glue_database_name  = "${var.project}-database"
 }
 
 module "s3" {

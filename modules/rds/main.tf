@@ -18,7 +18,7 @@ resource "aws_rds_cluster" "cluster" {
   copy_tags_to_snapshot = false
   db_cluster_parameter_group_name = "default.aurora-mysql5.7"
   enable_http_endpoint = false
-  engine_mode = provisioned
+  engine_mode = "provisioned"
   iam_database_authentication_enabled = false
   port = "3306"
   preferred_backup_window = "18:01-18:31"

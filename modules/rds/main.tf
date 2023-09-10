@@ -27,6 +27,7 @@ resource "aws_rds_cluster" "cluster" {
     ]
   }
 
+
 }
 
 resource "aws_rds_cluster_instance" "instance" {

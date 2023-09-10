@@ -55,7 +55,7 @@ module "glue" {
   database             = "glue"
   password             = var.glue_password
   username             = "admin"
-  glue_connection_name = "${var.project}-connection2"
+  glue_connection_name = "${var.project}-connection"
   subnet_id_for_glue   = module.vpc.project_subnet_public_id_1
 }
 

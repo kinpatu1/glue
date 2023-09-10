@@ -2,7 +2,7 @@ resource "aws_rds_cluster" "cluster" {
   cluster_identifier   = var.rds_name
   engine               = "aurora-mysql"
   engine_version       = "5.7.mysql_aurora.2.11.2"
-  availability_zones   = ["ap-northeast-1a", "ap-northeast-1c"]
+  availability_zones   = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
   master_username      = "admin"
   master_password      = var.master_password
   deletion_protection  = false
@@ -27,7 +27,20 @@ resource "aws_rds_cluster" "cluster" {
     ]
   }
 
-
+  backtrack_window = "0"
+  backup_retention_period = "1"
+  copy_tags_to_snapshot = false
+  db_cluster_parameter_group_name = "default.aurora-mysql5.7"
+  db_subnet_group_name = "glue-subnet_group"
+  enable_http_endpoint = false
+  engine_mode = provisioned
+  iam_database_authentication_enabled = false
+  port = "3306"
+  preferred_backup_window = "18:01-18:31"
+  preferred_maintenance_window = "mon:20:23-mon:20:53"
+  reader_endpoint = "glue-rds.cluster-ro-cyg5lydafgah.ap-northeast-1.rds.amazonaws.com"
+  storage_encrypted = false 
+  
 }
 
 resource "aws_rds_cluster_instance" "instance" {

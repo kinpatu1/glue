@@ -57,8 +57,6 @@ module "glue" {
   username             = "admin"
   glue_connection_name = "${var.project}-connection"
   subnet_id_for_glue   = module.vpc.project_subnet_public_id_1
-  iam_role = "${var.project}-role"
-  iam_policy = "${var.project}-policy"
 }
 
 module "s3" {
@@ -72,6 +70,6 @@ module "iam" {
   ### Module Path
   source = "../modules/iam"
 
-  iam_role = "${var.project}-role"
+  iam_role   = "${var.project}-role"
   iam_policy = "${var.project}-policy"
 }

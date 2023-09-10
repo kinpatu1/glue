@@ -42,7 +42,7 @@ resource "aws_glue_connection" "glue_connection_name" {
   }
 
   physical_connection_requirements {
-    availability_zone =  "ap-northeast-1c"
+    availability_zone      = "ap-northeast-1c"
     security_group_id_list = ["${aws_security_group.glue.id}"]
     subnet_id              = var.subnet_id_for_glue
   }

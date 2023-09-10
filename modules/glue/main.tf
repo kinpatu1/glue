@@ -41,5 +41,10 @@ resource "aws_glue_connection" "glue_connection_name" {
     JDBC_ENFORCE_SSL = true
   }
 
+  physical_connection_requirements {
+    security_group_id_list = ["${aws_security_group.glue.id}"]
+    subnet_id              = var.subnet_id_for_glue
+  }
+
   name = var.glue_connection_name
 }

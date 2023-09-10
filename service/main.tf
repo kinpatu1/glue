@@ -56,6 +56,7 @@ module "glue" {
   password = var.glue_password
   username = "admin"
   glue_connection_name = "${var.project}-connection2"
+  subnet_id_for_glue = module.vpc.project_subnet_public_id_1
 }
 
 module "s3" {

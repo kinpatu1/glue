@@ -23,7 +23,6 @@ resource "aws_rds_cluster" "cluster" {
   port = "3306"
   preferred_backup_window = "18:01-18:31"
   preferred_maintenance_window = "mon:20:23-mon:20:53"
-  reader_endpoint = "glue-rds.cluster-ro-cyg5lydafgah.ap-northeast-1.rds.amazonaws.com"
   storage_encrypted = false 
   
 }

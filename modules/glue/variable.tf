@@ -6,4 +6,5 @@ variable "database" {}
 variable "password" {}
 variable "username" {}
 variable "glue_connection_name" {}
+variable "subnet_id_for_glue" {}
 

@@ -48,15 +48,15 @@ module "glue" {
   ### Module Path
   source = "../modules/glue"
 
-  security_group_glue = "${var.project}-security_group-glue"
-  vpc_id              = module.vpc.project_vpc_id
-  glue_database_name  = "${var.project}-database"
-  instance_endpoint = module.rds.instance_endpoint
-  database = "glue"
-  password = var.glue_password
-  username = "admin"
+  security_group_glue  = "${var.project}-security_group-glue"
+  vpc_id               = module.vpc.project_vpc_id
+  glue_database_name   = "${var.project}-database"
+  instance_endpoint    = module.rds.instance_endpoint
+  database             = "glue"
+  password             = var.glue_password
+  username             = "admin"
   glue_connection_name = "${var.project}-connection2"
-  subnet_id_for_glue = module.vpc.project_subnet_public_id_1
+  subnet_id_for_glue   = module.vpc.project_subnet_public_id_1
 }
 
 module "s3" {

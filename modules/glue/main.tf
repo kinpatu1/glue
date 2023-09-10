@@ -38,7 +38,7 @@ resource "aws_glue_connection" "glue_connection_name" {
     JDBC_CONNECTION_URL = "jdbc:mysql://${var.instance_endpoint}:3306/${var.database}"
     PASSWORD            = var.password
     USERNAME            = var.username
-    JDBC_ENFORCE_SSL = true
+    JDBC_ENFORCE_SSL    = true
   }
 
   physical_connection_requirements {

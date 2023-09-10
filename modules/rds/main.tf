@@ -17,7 +17,6 @@ resource "aws_rds_cluster" "cluster" {
   backup_retention_period = "1"
   copy_tags_to_snapshot = false
   db_cluster_parameter_group_name = "default.aurora-mysql5.7"
-  db_subnet_group_name = "glue-subnet_group"
   enable_http_endpoint = false
   engine_mode = provisioned
   iam_database_authentication_enabled = false

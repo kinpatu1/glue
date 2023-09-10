@@ -51,3 +51,10 @@ module "glue" {
   security_group_glue = "${var.project}-security_group-glue"
   vpc_id              = module.vpc.project_vpc_id
 }
+
+module "s3" {
+  ### Module Path
+  source = "../modules/s3"
+
+  s3_bucket_name = "${var.project}-s3"
+}

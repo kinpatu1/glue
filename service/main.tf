@@ -71,5 +71,4 @@ module "iam" {
   source = "../modules/iam"
 
   iam_role   = "${var.project}-role"
-  iam_policy = "${var.project}-policy"
 }

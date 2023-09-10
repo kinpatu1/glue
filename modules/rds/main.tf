@@ -12,20 +12,6 @@ resource "aws_rds_cluster" "cluster" {
   vpc_security_group_ids = [
     aws_security_group.rds.id
   ]
-  lifecycle {
-    ignore_changes = [
-      apply_immediately,
-      backtrack_window,
-      cluster_identifier_prefix,
-      database_name,
-      enabled_cloudwatch_logs_exports,
-      global_cluster_identifier,
-      iam_database_authentication_enabled,
-      iam_roles,
-      replication_source_identifier,
-      tags
-    ]
-  }
 
   backtrack_window = "0"
   backup_retention_period = "1"

@@ -7,7 +7,7 @@ resource "aws_rds_cluster" "cluster" {
   engine               = "aurora-mysql"
   engine_version       = "5.7.mysql_aurora.2.11.2"
   availability_zones   = ["ap-northeast-1a", "ap-northeast-1c", "ap-northeast-1d"]
-  master_username      = "admin"
+  master_username      = var.master_username
   master_password      = var.master_password
   deletion_protection  = false
   skip_final_snapshot  = true

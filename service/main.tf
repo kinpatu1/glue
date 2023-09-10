@@ -67,3 +67,11 @@ module "s3" {
 
   s3_bucket_name = "${var.project}-s3-202301111"
 }
+
+module "iam" {
+  ### Module Path
+  source = "../modules/iam"
+
+  iam_role = "${var.project}-role"
+  iam_policy = "${var.project}-policy"
+}

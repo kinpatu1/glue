@@ -10,20 +10,7 @@ resource "aws_rds_cluster" "cluster" {
   db_subnet_group_name = aws_db_subnet_group.public.name
   vpc_security_group_ids = [
     aws_security_group.rds.id
-  ]
-
-  backtrack_window = "0"
-  backup_retention_period = "1"
-  copy_tags_to_snapshot = false
-  db_cluster_parameter_group_name = "default.aurora-mysql5.7"
-  enable_http_endpoint = false
-  engine_mode = "provisioned"
-  iam_database_authentication_enabled = false
-  port = "3306"
-  preferred_backup_window = "18:01-18:31"
-  preferred_maintenance_window = "mon:20:23-mon:20:53"
-  storage_encrypted = false 
-  
+  ]  
 }
 
 resource "aws_rds_cluster_instance" "instance" {

@@ -49,3 +49,13 @@ resource "aws_glue_connection" "glue_connection_name" {
 
   name = var.glue_connection_name
 }
+
+resource "aws_glue_crawler" "glue_crawler" {
+  database_name = aws_glue_catalog_database.glue_database.name
+  jdbc_target {
+    connection_name = aws_glue_connection.glue_connection_name.name
+    path            = var.path
+  }
+  name = var.glue_crawler_name
+  role = var.glue_role_name
+}

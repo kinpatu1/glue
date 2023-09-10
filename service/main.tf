@@ -57,6 +57,9 @@ module "glue" {
   username             = "admin"
   glue_connection_name = "${var.project}-connection"
   subnet_id_for_glue   = module.vpc.project_subnet_public_id_1
+  path = "glue/acinfotokyo"
+  glue_crawler_name = "${var.project}-crawler"
+  glue_role_name = module.iam.role_name
 }
 
 module "s3" {
